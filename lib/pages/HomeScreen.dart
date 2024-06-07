@@ -1,5 +1,5 @@
-import 'package:analysis_app/GetResults.dart';
-import 'package:analysis_app/SendCsv.dart';
+import 'package:analysis_app/pages/GetResults.dart';
+import 'package:analysis_app/pages/SendCsv.dart';
 import 'package:flutter/material.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,10 +22,10 @@ class _HomeScreenState extends State<HomeScreen> {
       length: _tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          bottom: const TabBar(
+          bottom: TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.format_list_bulleted_rounded), text: 'Send Csv'),
-              Tab(icon: Icon(Icons.dangerous), text: 'Analysis Results'),
+              Tab(icon: Image.asset("assets/icon/file.png", width: 30, height: 30,), text: 'Csv Yükleme'),
+              Tab(icon: Image.asset("assets/icon/analytics.png", width: 30, height: 30,), text: 'Analiz Verileri'),
             ],
           ),
         ),

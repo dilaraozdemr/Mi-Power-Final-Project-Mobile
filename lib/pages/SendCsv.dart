@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:http/http.dart' as http;
+import 'package:lottie/lottie.dart';
 import 'package:path/path.dart';
 import 'package:get/get.dart';
 
@@ -30,14 +31,14 @@ class _SendCsvState extends State<SendCsv> {
   }
 
   Future<void> _uploadFile(File file) async {
-    Get.defaultDialog(content: Center(child: CircularProgressIndicator()),
+    Get.defaultDialog(content: Center(child: Lottie.asset("assets/lottie/progressIndicator.json", width: 40, height: 40,),),
       title: "Csv Yükleniyor",
       barrierDismissible: false,
     );
 
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse('https://2659-34-125-25-59.ngrok-free.app/upload'), // NGROK URL'inizi buraya ekleyin
+      Uri.parse('https://c149-35-224-82-94.ngrok-free.app/upload'), // NGROK URL'inizi buraya ekleyin
     );
     request.files.add(
       http.MultipartFile(
@@ -66,19 +67,28 @@ class _SendCsvState extends State<SendCsv> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('CSV Uploader'),
-      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Center(child: Text('CSV Yükleme Sayfası', style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700, color: Color(0xff050C9C)),)),
+              Lottie.asset("assets/lottie/csv_upload.json",height: 400, width: 400),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _pickFile,
-                child: Text('Pick CSV File'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xff003285),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12), // <-- Radius
+                    ),
+                    textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
+                  child: Text('CSV dosyasını seçiniz', style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700),),
+                ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(_response),
             ],
           ),

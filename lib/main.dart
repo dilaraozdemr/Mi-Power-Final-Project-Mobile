@@ -1,4 +1,4 @@
-import 'package:analysis_app/routes.dart';
+import 'package:analysis_app/constant/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

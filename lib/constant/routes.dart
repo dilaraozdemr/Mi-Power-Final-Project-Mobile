@@ -1,8 +1,8 @@
 
-import 'package:analysis_app/GetDetail.dart';
-import 'package:analysis_app/GetResults.dart';
-import 'package:analysis_app/HomeScreen.dart';
-import 'package:analysis_app/SendCsv.dart';
+import 'package:analysis_app/pages/GetDetail.dart';
+import 'package:analysis_app/pages/GetResults.dart';
+import 'package:analysis_app/pages/HomeScreen.dart';
+import 'package:analysis_app/pages/SendCsv.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/route_middleware.dart';
 
